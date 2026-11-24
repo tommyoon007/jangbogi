@@ -745,7 +745,7 @@
       var maxM = Math.max.apply(null, months.map(function (m) { return m.total; })) || 1;
       html += '<div class="card"><h2 class="card-h">월별 지출 <span class="sub">최근 6개월</span></h2>' +
         '<div class="monthbars">' + months.map(function (m, i) {
-          var h = Math.max(6, Math.round((m.total / maxM) * 96));
+          var h = m.total ? Math.max(6, Math.round((m.total / maxM) * 96)) : 0;
           return '<div class="mb' + (i === months.length - 1 ? ' now' : '') + '">' +
             '<div class="mval">' + (m.total ? shortWon(m.total) : '') + '</div>' +
             '<div class="mbar" style="height:' + h + 'px"></div>' +
@@ -1039,6 +1039,10 @@
       discount: 0,
       memo: ''
     };
+    var initSub = (data.items || []).reduce(function (s, it) {
+      return s + (Number(it.qty) || 1) * (Number(it.price) || 0);
+    }, 0);
+    var initTotal = Math.max(0, initSub - (Number(data.discount) || 0));
     var stores = Array.from(new Set(allReceipts().map(function (x) { return x.store; })));
     var storeOptions = stores.map(function (s) { return '<option value="' + esc(s) + '"></option>'; }).join('');
 
@@ -1062,7 +1066,7 @@
       '<div><label class="formlab" for="recDiscount">할인 금액</label>' +
       '<input class="field" id="recDiscount" name="discount" type="number" inputmode="numeric" min="0" step="10" value="' + (data.discount || 0) + '"></div>' +
       '<div><label class="formlab">낸 금액</label>' +
-      '<div class="field" id="formTotal" style="display:flex;align-items:center;font-weight:800;background:#f9f9f6">' + won(calcFormTotal()) + '</div></div>' +
+      '<div class="field" id="formTotal" style="display:flex;align-items:center;font-weight:800;background:#f9f9f6">' + won(initTotal) + '</div></div>' +
       '</div>';
 
     html += '<label class="formlab" for="recMemo">메모 (안 써도 됩니다)</label>' +
