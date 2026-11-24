@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="장보기">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#3f9765"/>
+      <stop offset="1" stop-color="#256440"/>
+    </linearGradient>
+    <linearGradient id="bag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef6f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+  <path d="M212 236v-34a44 44 0 0 1 88 0v34" fill="none" stroke="#ffffff" stroke-width="25" stroke-linecap="round"/>
+  <rect x="166" y="214" width="180" height="168" rx="28" fill="url(#bag)"/>
+  <rect x="202" y="268" width="108" height="18" rx="9" fill="#2f7d4d"/>
+  <rect x="202" y="308" width="64" height="18" rx="9" fill="#9dcfae"/>
+  <ellipse cx="316" cy="176" rx="26" ry="17" transform="rotate(-32 316 176)" fill="#f0a24a"/>
+</svg>

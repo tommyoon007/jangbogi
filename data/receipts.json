@@ -1,0 +1,836 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-24",
+  "note": "장보기 앱 기본 영수증 자료. 새 영수증은 같은 items 형식으로 이 목록에 추가하면 앱에 바로 나타난다.",
+  "receipts": [
+    {
+      "id": "s01",
+      "date": "2026-08-08",
+      "store": "이마트 강일점",
+      "items": [
+        {
+          "name": "서울우유 1L",
+          "category": "유제품/음료",
+          "qty": 2,
+          "price": 2910,
+          "amount": 5820
+        },
+        {
+          "name": "계란 30구",
+          "category": "식품",
+          "qty": 1,
+          "price": 7980,
+          "amount": 7980
+        },
+        {
+          "name": "대파 1단",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 2410,
+          "amount": 2410
+        },
+        {
+          "name": "양파 1.5kg",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 3720,
+          "amount": 3720
+        },
+        {
+          "name": "애호박 1개",
+          "category": "채소/과일",
+          "qty": 2,
+          "price": 1180,
+          "amount": 2360
+        },
+        {
+          "name": "두부 1모",
+          "category": "식품",
+          "qty": 1,
+          "price": 1150,
+          "amount": 1150
+        },
+        {
+          "name": "삼겹살 500g",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 13200,
+          "amount": 13200
+        },
+        {
+          "name": "라면 5입",
+          "category": "식품",
+          "qty": 1,
+          "price": 4190,
+          "amount": 4190
+        },
+        {
+          "name": "생수 2L 6입",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 3750,
+          "amount": 3750
+        },
+        {
+          "name": "바나나 1송이",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 3390,
+          "amount": 3390
+        }
+      ],
+      "subtotal": 47970,
+      "discount": 1000,
+      "total": 46970,
+      "memo": "주말에 몰아서 장봄",
+      "sample": true
+    },
+    {
+      "id": "s02",
+      "date": "2026-08-16",
+      "store": "홈플러스 강동점",
+      "items": [
+        {
+          "name": "서울우유 1L",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 3080,
+          "amount": 3080
+        },
+        {
+          "name": "식빵 1봉",
+          "category": "식품",
+          "qty": 1,
+          "price": 2930,
+          "amount": 2930
+        },
+        {
+          "name": "그릭요거트 450g",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 5610,
+          "amount": 5610
+        },
+        {
+          "name": "방울토마토 500g",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 6020,
+          "amount": 6020
+        },
+        {
+          "name": "닭가슴살 1kg",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 9810,
+          "amount": 9810
+        },
+        {
+          "name": "김치 1kg",
+          "category": "식품",
+          "qty": 1,
+          "price": 8810,
+          "amount": 8810
+        }
+      ],
+      "subtotal": 36260,
+      "discount": 0,
+      "total": 36260,
+      "memo": "",
+      "sample": true
+    },
+    {
+      "id": "s03",
+      "date": "2026-08-27",
+      "store": "이마트 강일점",
+      "items": [
+        {
+          "name": "계란 30구",
+          "category": "식품",
+          "qty": 1,
+          "price": 7870,
+          "amount": 7870
+        },
+        {
+          "name": "대파 1단",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 2290,
+          "amount": 2290
+        },
+        {
+          "name": "감자 1kg",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 3440,
+          "amount": 3440
+        },
+        {
+          "name": "고등어 1마리",
+          "category": "정육/수산",
+          "qty": 2,
+          "price": 4310,
+          "amount": 8620
+        },
+        {
+          "name": "두부 1모",
+          "category": "식품",
+          "qty": 1,
+          "price": 1250,
+          "amount": 1250
+        },
+        {
+          "name": "커피캡슐 20개",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 11600,
+          "amount": 11600
+        }
+      ],
+      "subtotal": 35070,
+      "discount": 500,
+      "total": 34570,
+      "memo": "",
+      "sample": true
+    },
+    {
+      "id": "s04",
+      "date": "2026-09-05",
+      "store": "코스트코 양재점",
+      "items": [
+        {
+          "name": "휴지 30롤",
+          "category": "생필품",
+          "qty": 1,
+          "price": 14300,
+          "amount": 14300
+        },
+        {
+          "name": "세탁세제 2L",
+          "category": "생필품",
+          "qty": 1,
+          "price": 8110,
+          "amount": 8110
+        },
+        {
+          "name": "생수 2L 6입",
+          "category": "유제품/음료",
+          "qty": 2,
+          "price": 3260,
+          "amount": 6520
+        },
+        {
+          "name": "계란 30구",
+          "category": "식품",
+          "qty": 2,
+          "price": 6290,
+          "amount": 12580
+        },
+        {
+          "name": "식용유 900ml",
+          "category": "식품",
+          "qty": 1,
+          "price": 3390,
+          "amount": 3390
+        },
+        {
+          "name": "밥 4kg",
+          "category": "식품",
+          "qty": 1,
+          "price": 13500,
+          "amount": 13500
+        }
+      ],
+      "subtotal": 58400,
+      "discount": 3000,
+      "total": 55400,
+      "memo": "한 달치 대량 구매",
+      "sample": true
+    },
+    {
+      "id": "s05",
+      "date": "2026-09-14",
+      "store": "하나로마트 강일점",
+      "items": [
+        {
+          "name": "서울우유 1L",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 3130,
+          "amount": 3130
+        },
+        {
+          "name": "애호박 1개",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 1180,
+          "amount": 1180
+        },
+        {
+          "name": "깻잎 100g",
+          "category": "채소/과일",
+          "qty": 2,
+          "price": 1880,
+          "amount": 3760
+        },
+        {
+          "name": "사과 1.5kg",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 9080,
+          "amount": 9080
+        },
+        {
+          "name": "두부 1모",
+          "category": "식품",
+          "qty": 1,
+          "price": 1230,
+          "amount": 1230
+        }
+      ],
+      "subtotal": 18380,
+      "discount": 0,
+      "total": 18380,
+      "memo": "",
+      "sample": true
+    },
+    {
+      "id": "s06",
+      "date": "2026-09-21",
+      "store": "이마트 강일점",
+      "items": [
+        {
+          "name": "삼겹살 500g",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 13000,
+          "amount": 13000
+        },
+        {
+          "name": "닭가슴살 1kg",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 9930,
+          "amount": 9930
+        },
+        {
+          "name": "양파 1.5kg",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 3720,
+          "amount": 3720
+        },
+        {
+          "name": "라면 5입",
+          "category": "식품",
+          "qty": 1,
+          "price": 4320,
+          "amount": 4320
+        },
+        {
+          "name": "치약 3개",
+          "category": "생필품",
+          "qty": 1,
+          "price": 6940,
+          "amount": 6940
+        }
+      ],
+      "subtotal": 37910,
+      "discount": 0,
+      "total": 37910,
+      "memo": "",
+      "sample": true
+    },
+    {
+      "id": "s07",
+      "date": "2026-10-02",
+      "store": "이마트 강일점",
+      "items": [
+        {
+          "name": "서울우유 1L",
+          "category": "유제품/음료",
+          "qty": 2,
+          "price": 2870,
+          "amount": 5740
+        },
+        {
+          "name": "계란 30구",
+          "category": "식품",
+          "qty": 1,
+          "price": 7970,
+          "amount": 7970
+        },
+        {
+          "name": "식빵 1봉",
+          "category": "식품",
+          "qty": 1,
+          "price": 2740,
+          "amount": 2740
+        },
+        {
+          "name": "바나나 1송이",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 3230,
+          "amount": 3230
+        },
+        {
+          "name": "김치 1kg",
+          "category": "식품",
+          "qty": 1,
+          "price": 8740,
+          "amount": 8740
+        },
+        {
+          "name": "간장 1.8L",
+          "category": "식품",
+          "qty": 1,
+          "price": 5640,
+          "amount": 5640
+        }
+      ],
+      "subtotal": 34060,
+      "discount": 1200,
+      "total": 32860,
+      "memo": "추석 지나고 장봄",
+      "sample": true
+    },
+    {
+      "id": "s08",
+      "date": "2026-10-11",
+      "store": "GS25 강일점",
+      "items": [
+        {
+          "name": "서울우유 1L",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 3530,
+          "amount": 3530
+        },
+        {
+          "name": "식빵 1봉",
+          "category": "식품",
+          "qty": 1,
+          "price": 3220,
+          "amount": 3220
+        },
+        {
+          "name": "생수 2L 6입",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 4800,
+          "amount": 4800
+        }
+      ],
+      "subtotal": 11550,
+      "discount": 0,
+      "total": 11550,
+      "memo": "급해서 편의점에서",
+      "sample": true
+    },
+    {
+      "id": "s09",
+      "date": "2026-10-19",
+      "store": "홈플러스 강동점",
+      "items": [
+        {
+          "name": "새우 300g",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 9410,
+          "amount": 9410
+        },
+        {
+          "name": "고등어 1마리",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 4740,
+          "amount": 4740
+        },
+        {
+          "name": "방울토마토 500g",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 5860,
+          "amount": 5860
+        },
+        {
+          "name": "그릭요거트 450g",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 5400,
+          "amount": 5400
+        },
+        {
+          "name": "두부 1모",
+          "category": "식품",
+          "qty": 1,
+          "price": 1250,
+          "amount": 1250
+        },
+        {
+          "name": "애호박 1개",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 1190,
+          "amount": 1190
+        }
+      ],
+      "subtotal": 27850,
+      "discount": 0,
+      "total": 27850,
+      "memo": "",
+      "sample": true
+    },
+    {
+      "id": "s10",
+      "date": "2026-10-28",
+      "store": "이마트 강일점",
+      "items": [
+        {
+          "name": "대파 1단",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 2470,
+          "amount": 2470
+        },
+        {
+          "name": "양파 1.5kg",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 3770,
+          "amount": 3770
+        },
+        {
+          "name": "감자 1kg",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 3460,
+          "amount": 3460
+        },
+        {
+          "name": "서울우유 1L",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 3100,
+          "amount": 3100
+        },
+        {
+          "name": "계란 30구",
+          "category": "식품",
+          "qty": 1,
+          "price": 7630,
+          "amount": 7630
+        },
+        {
+          "name": "휴지 30롤",
+          "category": "생필품",
+          "qty": 1,
+          "price": 16300,
+          "amount": 16300
+        }
+      ],
+      "subtotal": 36730,
+      "discount": 800,
+      "total": 35930,
+      "memo": "",
+      "sample": true
+    },
+    {
+      "id": "s11",
+      "date": "2026-11-04",
+      "store": "이마트 강일점",
+      "items": [
+        {
+          "name": "삼겹살 500g",
+          "category": "정육/수산",
+          "qty": 2,
+          "price": 12800,
+          "amount": 25600
+        },
+        {
+          "name": "김치 1kg",
+          "category": "식품",
+          "qty": 1,
+          "price": 8490,
+          "amount": 8490
+        },
+        {
+          "name": "라면 5입",
+          "category": "식품",
+          "qty": 1,
+          "price": 4360,
+          "amount": 4360
+        },
+        {
+          "name": "커피캡슐 20개",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 12100,
+          "amount": 12100
+        },
+        {
+          "name": "바나나 1송이",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 3300,
+          "amount": 3300
+        }
+      ],
+      "subtotal": 53850,
+      "discount": 0,
+      "total": 53850,
+      "memo": "",
+      "sample": true
+    },
+    {
+      "id": "s12",
+      "date": "2026-11-11",
+      "store": "코스트코 양재점",
+      "items": [
+        {
+          "name": "밥 4kg",
+          "category": "식품",
+          "qty": 1,
+          "price": 13300,
+          "amount": 13300
+        },
+        {
+          "name": "세탁세제 2L",
+          "category": "생필품",
+          "qty": 1,
+          "price": 7820,
+          "amount": 7820
+        },
+        {
+          "name": "휴지 30롤",
+          "category": "생필품",
+          "qty": 1,
+          "price": 14200,
+          "amount": 14200
+        },
+        {
+          "name": "생수 2L 6입",
+          "category": "유제품/음료",
+          "qty": 2,
+          "price": 3140,
+          "amount": 6280
+        },
+        {
+          "name": "식용유 900ml",
+          "category": "식품",
+          "qty": 1,
+          "price": 3580,
+          "amount": 3580
+        }
+      ],
+      "subtotal": 45180,
+      "discount": 2500,
+      "total": 42680,
+      "memo": "",
+      "sample": true
+    },
+    {
+      "id": "s13",
+      "date": "2026-11-16",
+      "store": "이마트 강일점",
+      "items": [
+        {
+          "name": "서울우유 1L",
+          "category": "유제품/음료",
+          "qty": 2,
+          "price": 3030,
+          "amount": 6060
+        },
+        {
+          "name": "계란 30구",
+          "category": "식품",
+          "qty": 1,
+          "price": 8030,
+          "amount": 8030
+        },
+        {
+          "name": "두부 1모",
+          "category": "식품",
+          "qty": 1,
+          "price": 1220,
+          "amount": 1220
+        },
+        {
+          "name": "식빵 1봉",
+          "category": "식품",
+          "qty": 1,
+          "price": 2840,
+          "amount": 2840
+        },
+        {
+          "name": "깻잎 100g",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 1720,
+          "amount": 1720
+        },
+        {
+          "name": "사과 1.5kg",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 9050,
+          "amount": 9050
+        }
+      ],
+      "subtotal": 28920,
+      "discount": 0,
+      "total": 28920,
+      "memo": "",
+      "sample": true
+    },
+    {
+      "id": "s14",
+      "date": "2026-11-19",
+      "store": "하나로마트 강일점",
+      "items": [
+        {
+          "name": "닭가슴살 1kg",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 10100,
+          "amount": 10100
+        },
+        {
+          "name": "애호박 1개",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 1170,
+          "amount": 1170
+        },
+        {
+          "name": "대파 1단",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 2440,
+          "amount": 2440
+        },
+        {
+          "name": "방울토마토 500g",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 6060,
+          "amount": 6060
+        },
+        {
+          "name": "고등어 1마리",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 4510,
+          "amount": 4510
+        }
+      ],
+      "subtotal": 24280,
+      "discount": 0,
+      "total": 24280,
+      "memo": "",
+      "sample": true
+    },
+    {
+      "id": "s15",
+      "date": "2026-11-22",
+      "store": "노브랜드 강일점",
+      "items": [
+        {
+          "name": "라면 5입",
+          "category": "식품",
+          "qty": 1,
+          "price": 4060,
+          "amount": 4060
+        },
+        {
+          "name": "치약 3개",
+          "category": "생필품",
+          "qty": 1,
+          "price": 6560,
+          "amount": 6560
+        },
+        {
+          "name": "간장 1.8L",
+          "category": "식품",
+          "qty": 1,
+          "price": 4840,
+          "amount": 4840
+        },
+        {
+          "name": "생수 2L 6입",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 3670,
+          "amount": 3670
+        },
+        {
+          "name": "그릭요거트 450g",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 5180,
+          "amount": 5180
+        }
+      ],
+      "subtotal": 24310,
+      "discount": 700,
+      "total": 23610,
+      "memo": "",
+      "sample": true
+    },
+    {
+      "id": "s16",
+      "date": "2026-11-23",
+      "store": "이마트 강일점",
+      "items": [
+        {
+          "name": "서울우유 1L",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 3040,
+          "amount": 3040
+        },
+        {
+          "name": "계란 30구",
+          "category": "식품",
+          "qty": 1,
+          "price": 7890,
+          "amount": 7890
+        },
+        {
+          "name": "삼겹살 500g",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 13400,
+          "amount": 13400
+        },
+        {
+          "name": "김치 1kg",
+          "category": "식품",
+          "qty": 1,
+          "price": 8780,
+          "amount": 8780
+        },
+        {
+          "name": "바나나 1송이",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 3420,
+          "amount": 3420
+        },
+        {
+          "name": "두부 1모",
+          "category": "식품",
+          "qty": 1,
+          "price": 1220,
+          "amount": 1220
+        }
+      ],
+      "subtotal": 37750,
+      "discount": 0,
+      "total": 37750,
+      "memo": "이번 주 장보기",
+      "sample": true
+    }
+  ]
+}
