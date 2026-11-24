@@ -43,7 +43,7 @@ self.addEventListener('fetch', function (event) {
   /* 영수증 자료: 새것을 먼저 받고, 안 되면 저장해 둔 것 */
   if (/\/data\/receipts\.json$/.test(url.pathname)) {
     event.respondWith(
-      fetch(req).then(function (res) {
+      fetch(req, { cache: 'no-store' }).then(function (res) {
         var copy = res.clone();
         caches.open(CACHE).then(function (c) { c.put(req, copy); });
         return res;
@@ -57,7 +57,7 @@ self.addEventListener('fetch', function (event) {
   /* 화면 이동: 새 화면을 먼저, 안 되면 저장해 둔 첫 화면 */
   if (req.mode === 'navigate') {
     event.respondWith(
-      fetch(req).then(function (res) {
+      fetch(req, { cache: 'no-store' }).then(function (res) {
         var copy = res.clone();
         caches.open(CACHE).then(function (c) { c.put('./index.html', copy); });
         return res;
@@ -71,7 +71,7 @@ self.addEventListener('fetch', function (event) {
   /* 나머지 파일: 저장본을 바로 보여 주고, 뒤에서 새것으로 바꿔 둡니다. */
   event.respondWith(
     caches.match(req).then(function (hit) {
-      var network = fetch(req).then(function (res) {
+      var network = fetch(req, { cache: 'no-store' }).then(function (res) {
         if (res && res.ok) {
           var copy = res.clone();
           caches.open(CACHE).then(function (c) { c.put(req, copy); });
