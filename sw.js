@@ -1,5 +1,5 @@
 /* 장보기 서비스 워커 — 앱을 휴대폰에 설치하고, 인터넷이 약해도 열리게 합니다. */
-var CACHE = 'jangbogi-v1';
+var CACHE = 'jangbogi-v2';
 var ASSETS = [
   './',
   './index.html',

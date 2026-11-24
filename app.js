@@ -9,6 +9,7 @@
   var LS_STATE = 'jangbogi.state.v1';
   var LS_BASE = 'jangbogi.base.v1';
   var LS_TAB = 'jangbogi.tab.v1';
+  var LS_THEME = 'jangbogi_theme';
 
   var CATS = ['채소/과일', '정육/수산', '유제품/음료', '식품', '생필품', '기타'];
   var WD = ['일', '월', '화', '수', '목', '금', '토'];
@@ -97,6 +98,53 @@
       t.classList.remove('show');
       setTimeout(function () { t.hidden = true; }, 220);
     }, 2100);
+  }
+
+  /* ------------------------------------------------------------------ *
+   * 화면 모드 (다크 / 라이트)
+   *   - 고른 적이 없으면 기기 설정(prefers-color-scheme)을 따른다.
+   *   - 버튼으로 고르면 이 기기에 기억한다(jangbogi_theme).
+   * ------------------------------------------------------------------ */
+  var mqDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+
+  function savedTheme() {
+    try {
+      var t = localStorage.getItem(LS_THEME);
+      return (t === 'dark' || t === 'light') ? t : '';
+    } catch (e) { return ''; }
+  }
+  function systemTheme() { return mqDark && mqDark.matches ? 'dark' : 'light'; }
+  function currentTheme() { return savedTheme() || systemTheme(); }
+
+  function applyTheme(theme, persist) {
+    var chosen = (theme === 'dark' || theme === 'light') ? theme : '';
+    var root = document.documentElement;
+    if (chosen) root.setAttribute('data-theme', chosen);
+    else root.removeAttribute('data-theme');
+
+    var eff = chosen || systemTheme();
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', eff === 'dark' ? '#121513' : '#2f7d4d');
+
+    var btn = document.getElementById('btnTheme');
+    if (btn) {
+      var label = eff === 'dark' ? '라이트 모드로 보기' : '다크 모드로 보기';
+      btn.setAttribute('data-mode', eff);
+      btn.setAttribute('aria-pressed', eff === 'dark' ? 'true' : 'false');
+      btn.setAttribute('aria-label', label);
+      btn.setAttribute('title', label);
+    }
+
+    if (persist && chosen) {
+      try { localStorage.setItem(LS_THEME, chosen); } catch (e) {}
+    }
+    return eff;
+  }
+
+  function toggleTheme() {
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    applyTheme(next, true);
+    return next;
   }
 
   /* ------------------------------------------------------------------ *
@@ -721,7 +769,7 @@
       recs.forEach(function (r) { storeMap.set(r.store, (storeMap.get(r.store) || 0) + r.total); });
       var storeRows = Array.from(storeMap.entries()).sort(function (a, b) { return b[1] - a[1]; });
       html += '<div class="card"><h2 class="card-h">가게별</h2><div class="bars">' +
-        barRows(storeRows.map(function (e) { return { label: e[0], value: e[1], color: '#2f7d4d' }; }), total) +
+        barRows(storeRows.map(function (e) { return { label: e[0], value: e[1] }; }), total) +
         '</div></div>';
 
       /* 분류별 (할인 반영) */
@@ -773,8 +821,8 @@
       var pct = total > 0 ? Math.round(r.value / total * 100) : 0;
       return '<div class="barrow">' +
         '<div class="bl">' + esc(r.label) + '</div>' +
-        '<div class="bv">' + won(r.value) + ' <span style="color:#99a29b;font-weight:700">' + pct + '%</span></div>' +
-        '<div class="bartrack"><div class="barfill" style="width:' + Math.max(2, Math.round(r.value / max * 100)) + '%;background:' + (r.color || '#2f7d4d') + '"></div></div>' +
+        '<div class="bv">' + won(r.value) + ' <span class="bv-pct">' + pct + '%</span></div>' +
+        '<div class="bartrack"><div class="barfill" style="width:' + Math.max(2, Math.round(r.value / max * 100)) + '%' + (r.color ? ';background:' + r.color : '') + '"></div></div>' +
         '</div>';
     }).join('');
   }
@@ -935,7 +983,7 @@
       '</div>';
 
     if (verdict) {
-      html += '<p class="hint" style="margin-top:10px;font-weight:700;color:#3b443e">' + esc(verdict) + '</p>';
+      html += '<p class="hint" style="margin-top:10px;font-weight:700;color:var(--ink-2)">' + esc(verdict) + '</p>';
     }
 
     html += '<div class="chartcard"><h3>값이 어떻게 변했나</h3>' + priceChart(g.purchases, g.avg) + '</div>';
@@ -982,23 +1030,24 @@
     var minPrice = Math.min.apply(null, prices);
     var dots = pts.map(function (p, i) {
       var isMin = p.price === minPrice;
-      return '<circle cx="' + X(i).toFixed(1) + '" cy="' + Y(p.price).toFixed(1) + '" r="' + (isMin ? 4 : 3) + '" fill="' + (isMin ? '#2f7d4d' : '#ffffff') + '" stroke="#2f7d4d" stroke-width="1.7"/>';
+      return '<circle class="pdot' + (isMin ? ' min' : '') + '" cx="' + X(i).toFixed(1) + '" cy="' + Y(p.price).toFixed(1) + '" r="' + (isMin ? 4 : 3) + '"/>';
     }).join('');
 
-    var avgLine = avg ? '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(avg).toFixed(1) + '" y2="' + Y(avg).toFixed(1) + '" stroke="#c8cec8" stroke-width="1" stroke-dasharray="4 4"/>' +
-      '<text x="' + (W - R) + '" y="' + (Y(avg) - 5).toFixed(1) + '" text-anchor="end" font-size="9.5" fill="#99a29b">평균 ' + fmt(avg) + '</text>' : '';
+    /* 색은 styles.css의 .pchart 규칙이 화면 모드에 맞춰 정한다 */
+    var avgLine = avg ? '<line class="pavg" x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(avg).toFixed(1) + '" y2="' + Y(avg).toFixed(1) + '"/>' +
+      '<text class="plab sm" x="' + (W - R) + '" y="' + (Y(avg) - 5).toFixed(1) + '" text-anchor="end">평균 ' + fmt(avg) + '</text>' : '';
 
     var x1 = X(0), x2 = X(pts.length - 1);
-    var labels = '<text x="' + x1.toFixed(1) + '" y="' + (H - 8) + '" text-anchor="start" font-size="10" fill="#99a29b">' + fmtDate(pts[0].date) + '</text>' +
-      (pts.length > 1 ? '<text x="' + x2.toFixed(1) + '" y="' + (H - 8) + '" text-anchor="end" font-size="10" fill="#99a29b">' + fmtDate(pts[pts.length - 1].date) + '</text>' : '');
+    var labels = '<text class="plab" x="' + x1.toFixed(1) + '" y="' + (H - 8) + '" text-anchor="start">' + fmtDate(pts[0].date) + '</text>' +
+      (pts.length > 1 ? '<text class="plab" x="' + x2.toFixed(1) + '" y="' + (H - 8) + '" text-anchor="end">' + fmtDate(pts[pts.length - 1].date) + '</text>' : '');
 
-    return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="품목 가격 변화">' +
+    return '<svg class="pchart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="품목 가격 변화">' +
       '<defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">' +
-      '<stop offset="0%" stop-color="#2f7d4d" stop-opacity="0.16"/>' +
-      '<stop offset="100%" stop-color="#2f7d4d" stop-opacity="0"/></linearGradient></defs>' +
+      '<stop class="pgrad-a" offset="0%"/>' +
+      '<stop class="pgrad-b" offset="100%"/></linearGradient></defs>' +
       '<path d="' + area + '" fill="url(#g1)"/>' +
       avgLine +
-      '<path d="' + line + '" fill="none" stroke="#2f7d4d" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<path class="pline" d="' + line + '"/>' +
       dots + labels +
       '</svg>';
   }
@@ -1027,7 +1076,7 @@
 
     html += '<div class="sheet-actions">' +
       '<button class="btn line" type="button" data-act="editreceipt" data-id="' + esc(r.id) + '">수정</button>' +
-      '<button class="btn line" type="button" data-act="delreceipt" data-id="' + esc(r.id) + '" style="color:#b23b34;border-color:#f0d4d1">지우기</button>' +
+      '<button class="btn danger" type="button" data-act="delreceipt" data-id="' + esc(r.id) + '">지우기</button>' +
       '</div>';
 
     openSheet(html);
@@ -1070,7 +1119,7 @@
       '<div><label class="formlab" for="recDiscount">할인 금액</label>' +
       '<input class="field" id="recDiscount" name="discount" type="number" inputmode="numeric" min="0" step="10" value="' + (data.discount || 0) + '"></div>' +
       '<div><label class="formlab">낸 금액</label>' +
-      '<div class="field" id="formTotal" style="display:flex;align-items:center;font-weight:800;background:#f9f9f6">' + won(initTotal) + '</div></div>' +
+      '<div class="field" id="formTotal" style="display:flex;align-items:center;font-weight:800;background:var(--line-2)">' + won(initTotal) + '</div></div>' +
       '</div>';
 
     html += '<label class="formlab" for="recMemo">메모 (안 써도 됩니다)</label>' +
@@ -1164,10 +1213,19 @@
 
     html += '<div class="card" style="margin-top:8px">';
 
-    html += '<div class="settingrow"><div class="st"><b>샘플 데이터</b>' +
-      '<span>앱을 미리 써 보도록 넣어 둔 영수증 ' + sampleCount + '장입니다. 실제 기록을 넣기 시작하면 비우세요. 비워도 앱에서 직접 넣은 영수증은 그대로 남습니다.</span></div>' +
-      '<button class="btn sm ' + (S.showSample ? 'line' : 'ghost') + '" type="button" data-act="toggleSample">' +
-      (S.showSample ? '샘플 비우기' : '샘플 불러오기') + '</button></div>';
+    var mode = currentTheme();
+    html += '<div class="settingrow"><div class="st"><b>화면 모드</b>' +
+      '<span>' + (mode === 'dark' ? '지금은 다크 모드입니다.' : '지금은 라이트 모드입니다.') +
+      ' 누르면 바로 바뀌고 이 기기에 기억됩니다.</span></div>' +
+      '<button class="btn sm line" type="button" data-act="toggleTheme">' +
+      (mode === 'dark' ? '라이트로 보기' : '다크로 보기') + '</button></div>';
+
+    if (sampleCount) {
+      html += '<div class="settingrow"><div class="st"><b>샘플 데이터</b>' +
+        '<span>앱을 미리 써 보도록 넣어 둔 영수증 ' + sampleCount + '장입니다. 실제 기록을 넣기 시작하면 비우세요. 비워도 앱에서 직접 넣은 영수증은 그대로 남습니다.</span></div>' +
+        '<button class="btn sm ' + (S.showSample ? 'line' : 'ghost') + '" type="button" data-act="toggleSample">' +
+        (S.showSample ? '샘플 비우기' : '샘플 불러오기') + '</button></div>';
+    }
 
     html += '<div class="settingrow"><div class="st"><b>홈 화면에 추가</b>' +
       '<span>휴대폰 홈 화면에 앱처럼 놓을 수 있습니다. 크롬에서 오른쪽 위 <b>⋮</b> → ‘홈 화면에 추가’를 누르세요.</span></div>' +
@@ -1189,6 +1247,13 @@
     var d = el.dataset || {};
     switch (act) {
       case 'closeSheet': closeSheet(); break;
+
+      case 'toggleTheme': {
+        var next = toggleTheme();
+        toast(next === 'dark' ? '다크 모드로 봅니다' : '라이트 모드로 봅니다');
+        openSettings();
+        break;
+      }
 
       case 'iteminfo':
         openItemSheet(d.key, d.name);
@@ -1444,6 +1509,19 @@
   });
 
   document.getElementById('btnMore').addEventListener('click', function () { openSettings(); });
+
+  /* 화면 모드 단추 + 기기 설정 변경 따라가기 */
+  var btnTheme = document.getElementById('btnTheme');
+  if (btnTheme) btnTheme.addEventListener('click', function () {
+    var next = toggleTheme();
+    toast(next === 'dark' ? '다크 모드로 봅니다' : '라이트 모드로 봅니다');
+  });
+  if (mqDark) {
+    var onSchemeChange = function () { if (!savedTheme()) applyTheme(''); };
+    if (mqDark.addEventListener) mqDark.addEventListener('change', onSchemeChange);
+    else if (mqDark.addListener) mqDark.addListener(onSchemeChange);
+  }
+  applyTheme(savedTheme());
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !$('#sheetWrap').hidden) closeSheet();
