@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updatedAt": "2026-11-24",
-  "note": "장보기 앱 기본 영수증 자료. 실제 받은 영수증 4장을 날짜와 금액 그대로 옮겨 두었다. 새 영수증은 같은 items 형식으로 이 목록에 추가하면 앱에 바로 나타난다.",
+  "note": "장보기 앱 기본 영수증 자료. 실제 받은 영수증 7장을 날짜와 금액 그대로 옮겨 두었다. 새 영수증은 같은 items 형식으로 이 목록에 추가하면 앱에 바로 나타난다.",
   "receipts": [
     {
       "id": "r-20261119-oneplus",
@@ -61,6 +61,88 @@
       "subtotal": 29020,
       "discount": 1190,
       "total": 27830,
+      "memo": "",
+      "sample": false
+    },
+    {
+      "id": "r-20261112-costco",
+      "date": "2026-11-12",
+      "store": "코스트코 하남점",
+      "items": [
+        {
+          "name": "KS 프리미엄화장지",
+          "category": "생필품",
+          "qty": 1,
+          "price": 22490,
+          "amount": 22490
+        },
+        {
+          "name": "프라이드치킨",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 17970,
+          "amount": 17970
+        },
+        {
+          "name": "미국 냉장살치살팩",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 91600,
+          "amount": 91600
+        },
+        {
+          "name": "Q1 갈색설탕 4.5kg",
+          "category": "식품",
+          "qty": 1,
+          "price": 8390,
+          "amount": 8390
+        },
+        {
+          "name": "미니소프트케익",
+          "category": "식품",
+          "qty": 1,
+          "price": 9990,
+          "amount": 9990
+        },
+        {
+          "name": "KS 구운 재래김",
+          "category": "식품",
+          "qty": 1,
+          "price": 12490,
+          "amount": 12490
+        },
+        {
+          "name": "배 (국내산)",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 13890,
+          "amount": 13890
+        },
+        {
+          "name": "엔비사과 3kg",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 22990,
+          "amount": 22990
+        },
+        {
+          "name": "비타민우유 2.3L",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 4990,
+          "amount": 4990
+        },
+        {
+          "name": "신라 화이트브레드",
+          "category": "식품",
+          "qty": 1,
+          "price": 8990,
+          "amount": 8990
+        }
+      ],
+      "subtotal": 213790,
+      "discount": 5000,
+      "total": 208790,
       "memo": "",
       "sample": false
     },
@@ -159,6 +241,109 @@
       "sample": false
     },
     {
+      "id": "r-20261012-costco",
+      "date": "2026-10-12",
+      "store": "코스트코 하남점",
+      "items": [
+        {
+          "name": "코카콜라 600ml",
+          "category": "유제품/음료",
+          "qty": 3,
+          "price": 22990,
+          "amount": 68970
+        },
+        {
+          "name": "샤인머스켓",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 11590,
+          "amount": 11590
+        },
+        {
+          "name": "신라 화이트브레드",
+          "category": "식품",
+          "qty": 2,
+          "price": 8990,
+          "amount": 17980
+        },
+        {
+          "name": "KS 상그리아",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 9990,
+          "amount": 9990
+        },
+        {
+          "name": "프라이드치킨",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 17970,
+          "amount": 17970
+        },
+        {
+          "name": "정통야채사각",
+          "category": "식품",
+          "qty": 1,
+          "price": 8490,
+          "amount": 8490
+        },
+        {
+          "name": "KS 베이컨 라이트",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 27990,
+          "amount": 27990
+        },
+        {
+          "name": "부산어묵 1200g",
+          "category": "식품",
+          "qty": 1,
+          "price": 6490,
+          "amount": 6490
+        },
+        {
+          "name": "정통어묵탕모듬",
+          "category": "식품",
+          "qty": 1,
+          "price": 12990,
+          "amount": 12990
+        },
+        {
+          "name": "미니소프트케익",
+          "category": "식품",
+          "qty": 1,
+          "price": 9990,
+          "amount": 9990
+        },
+        {
+          "name": "쇠고기다시다 TIN",
+          "category": "식품",
+          "qty": 1,
+          "price": 17990,
+          "amount": 17990
+        },
+        {
+          "name": "백설 옥수수유",
+          "category": "식품",
+          "qty": 1,
+          "price": 15990,
+          "amount": 15990
+        },
+        {
+          "name": "본마망 4프루츠",
+          "category": "식품",
+          "qty": 1,
+          "price": 9490,
+          "amount": 9490
+        }
+      ],
+      "subtotal": 235920,
+      "discount": 21500,
+      "total": 214420,
+      "memo": "",
+      "sample": false
+    },
+    {
       "id": "r-20260917-costco",
       "date": "2026-09-17",
       "store": "코스트코 하남점",
@@ -251,6 +436,123 @@
       "subtotal": 468450,
       "discount": 16000,
       "total": 452450,
+      "memo": "",
+      "sample": false
+    },
+    {
+      "id": "r-20260729-costco",
+      "date": "2026-07-29",
+      "store": "코스트코 하남점",
+      "items": [
+        {
+          "name": "KS 프리미엄화장지",
+          "category": "생필품",
+          "qty": 1,
+          "price": 23490,
+          "amount": 23490
+        },
+        {
+          "name": "마장이천쌀 10kg",
+          "category": "식품",
+          "qty": 1,
+          "price": 41490,
+          "amount": 41490
+        },
+        {
+          "name": "바릴라 링귀니",
+          "category": "식품",
+          "qty": 1,
+          "price": 13990,
+          "amount": 13990
+        },
+        {
+          "name": "동물복지란 30개",
+          "category": "식품",
+          "qty": 1,
+          "price": 9490,
+          "amount": 9490
+        },
+        {
+          "name": "갈로팔로 스파게티",
+          "category": "식품",
+          "qty": 1,
+          "price": 15990,
+          "amount": 15990
+        },
+        {
+          "name": "다우니 섬유유연제",
+          "category": "생필품",
+          "qty": 1,
+          "price": 25990,
+          "amount": 25990
+        },
+        {
+          "name": "알리오올리오 소스",
+          "category": "식품",
+          "qty": 1,
+          "price": 15990,
+          "amount": 15990
+        },
+        {
+          "name": "스타벅스 베로나",
+          "category": "유제품/음료",
+          "qty": 1,
+          "price": 45990,
+          "amount": 45990
+        },
+        {
+          "name": "햄스빌 베이컨",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 17990,
+          "amount": 17990
+        },
+        {
+          "name": "KS 자숙새우 50-70",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 26990,
+          "amount": 26990
+        },
+        {
+          "name": "황금올릭 순살",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 18490,
+          "amount": 18490
+        },
+        {
+          "name": "동물복지 아랫날개",
+          "category": "정육/수산",
+          "qty": 1,
+          "price": 22990,
+          "amount": 22990
+        },
+        {
+          "name": "비비고 참기름 1L",
+          "category": "식품",
+          "qty": 1,
+          "price": 14790,
+          "amount": 14790
+        },
+        {
+          "name": "KS 구운 재래김",
+          "category": "식품",
+          "qty": 1,
+          "price": 12490,
+          "amount": 12490
+        },
+        {
+          "name": "델몬트 바나나",
+          "category": "채소/과일",
+          "qty": 1,
+          "price": 2690,
+          "amount": 2690
+        }
+      ],
+      "subtotal": 308850,
+      "discount": 12600,
+      "total": 296250,
       "memo": "",
       "sample": false
     }

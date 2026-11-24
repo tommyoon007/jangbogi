@@ -198,7 +198,7 @@ ul{list-style:none}
 .brand-mark{
   width:38px;height:38px;border-radius:12px;flex:0 0 auto;
   display:grid;place-items:center;
-  background:var(--green);color:var(--on-green);
+  background:var(--green);color:#fff;
   box-shadow:0 3px 10px rgba(47,125,77,.25);
 }
 .brand-text{min-width:0}
@@ -534,6 +534,10 @@ body.sheet-open{overflow:hidden}
 
 /* 값이 어떻게 변했나 — 색은 화면 모드를 따라간다 */
 .pchart .pgrad-a{stop-color:var(--green);stop-opacity:.16}
+:root[data-theme="dark"] .pchart .pgrad-a{stop-opacity:.24}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .pchart .pgrad-a{stop-opacity:.24}
+}
 .pchart .pgrad-b{stop-color:var(--green);stop-opacity:0}
 .pchart .pline{fill:none;stroke:var(--green);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
 .pchart .pdot{fill:var(--chart-dot);stroke:var(--green);stroke-width:1.7}
