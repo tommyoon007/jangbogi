@@ -607,7 +607,7 @@
           '<div class="pr-sub">' + g.count + '번 샀어요 · 지난 ' + (g.lastPriced ? won(g.lastPriced.price) : '기록 없음') + '</div>' +
           '</div>' +
           '<div class="pr-right">' +
-          '<div class="pr-min">' + (g.min ? won(g.min.price) : '-') + '</div>' +
+          '<div class="pr-min">' + (g.min ? '<span class="minlab">최저</span>' + won(g.min.price) : '-') + '</div>' +
           '<div class="pr-store">' + (g.min ? esc(g.min.store) : '') + '</div>' +
           '</div></button></li>';
       }).join('') + '</ul>';
@@ -701,8 +701,12 @@
         var pct = Math.round(Math.abs(diff) / prev * 100);
         var cls = pct <= 2 ? 'same' : (diff < 0 ? 'down' : 'up');
         var when = ui.period === 'week' ? '지난주' : '지난달 이맘때';
-        var text = pct <= 2 ? when + '와 비슷하게 썼어요'
-          : when + '보다 ' + pct + '% ' + (diff < 0 ? '적게 썼어요' : '더 썼어요');
+        var ratio = prev > 0 ? total / prev : 0;
+        var text;
+        if (pct <= 2) text = when + '와 비슷하게 썼어요';
+        else if (diff > 0 && ratio >= 1.8) text = when + '의 약 ' + (Math.round(ratio * 10) / 10) + '배 썼어요';
+        else if (diff < 0 && ratio <= 0.55) text = when + '의 절반도 안 되게 썼어요';
+        else text = when + '보다 ' + pct + '% ' + (diff < 0 ? '적게 썼어요' : '더 썼어요');
         html += '<div class="deltaline ' + cls + '">' + text + (diff < 0 ? ' ↓' : pct > 2 ? ' ↑' : '') + '</div>';
       }
     } else {
